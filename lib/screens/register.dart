@@ -9,6 +9,7 @@ class _RegisterState extends State<Register> {
   // Explicit
   String nameEn = 'Name :';
   final formKey = GlobalKey<FormState>();
+  String nameString, emailString, passwordString;
 
   // Mathod
   Widget nameText() {
@@ -26,10 +27,14 @@ class _RegisterState extends State<Register> {
             size: 36.0,
             color: Colors.blue,
           ),
-        ),validator: (String value){
+        ),
+        validator: (String value) {
           if (value.isEmpty) {
             return 'Please Fill Name in Blank';
           }
+        },
+        onSaved: (String value) {
+          nameString = value;
         },
       ),
     );
@@ -51,10 +56,14 @@ class _RegisterState extends State<Register> {
             size: 36.0,
             color: Colors.orange,
           ),
-        ),validator: (String value){
+        ),
+        validator: (String value) {
           if (!((value.contains('@')) && (value.contains('.')))) {
             return 'Please Type you@email.com';
           }
+        },
+        onSaved: (String value) {
+          emailString = value;
         },
       ),
     );
@@ -75,10 +84,14 @@ class _RegisterState extends State<Register> {
             size: 36.0,
             color: Colors.purple,
           ),
-        ),validator: (String value){
+        ),
+        validator: (String value) {
           if (value.length < 6) {
             return 'Password More 6 Charactor';
           }
+        },
+        onSaved: (String value) {
+          passwordString = value;
         },
       ),
     );
@@ -91,9 +104,9 @@ class _RegisterState extends State<Register> {
         print('Click Upload');
 
         if (formKey.currentState.validate()) {
-          
+          formKey.currentState.save();
+          print('name = $nameString, email = $emailString, password = $passwordString');
         }
-
       },
     );
   }
