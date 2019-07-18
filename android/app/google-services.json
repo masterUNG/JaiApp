@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "426938034481",
+    "firebase_url": "https://jaiapp-73eb6.firebaseio.com",
+    "project_id": "jaiapp-73eb6",
+    "storage_bucket": "jaiapp-73eb6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426938034481:android:5141c9b88048533d",
+        "android_client_info": {
+          "package_name": "th.in.androidthai.jai_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426938034481-06odt5mjq8froidga9ljq309hhil3sso.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "th.in.androidthai.jai_app",
+            "certificate_hash": "99f1de59cbbb9f0ab27aeb63c596235bc843b92a"
+          }
+        },
+        {
+          "client_id": "426938034481-m4rnap459vn7d7hj1b25cj724k307pkh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPNUcCfovS9LpwTAD6quAOucLnxbOMO88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426938034481-m4rnap459vn7d7hj1b25cj724k307pkh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
