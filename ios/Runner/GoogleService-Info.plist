@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>426938034481-ep1va9lqnuo9c1p0luf69aeo3c9ajrfh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.426938034481-ep1va9lqnuo9c1p0luf69aeo3c9ajrfh</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>426938034481-06odt5mjq8froidga9ljq309hhil3sso.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAwmFyN1ff2HFDYtwQHZtuUBYk_eTan8WE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>426938034481</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>th.in.androidthai.jaiApp</string>
+	<key>PROJECT_ID</key>
+	<string>jaiapp-73eb6</string>
+	<key>STORAGE_BUCKET</key>
+	<string>jaiapp-73eb6.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:426938034481:ios:3f688a3ea4fb5d8b</string>
+	<key>DATABASE_URL</key>
+	<string>https://jaiapp-73eb6.firebaseio.com</string>
+</dict>
+</plist>
