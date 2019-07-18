@@ -13,6 +13,9 @@ class _AuthenState extends State<Authen> {
   double myLenght = 160.0;
   double h1 = 48.0, h2 = 18.0;
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  final formKey = GlobalKey<FormState>();
+  String emailString, passwordString;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   // Method
   @override
@@ -31,7 +34,8 @@ class _AuthenState extends State<Authen> {
   void moveToService() {
     var serviceRoute =
         MaterialPageRoute(builder: (BuildContext context) => MyService());
-        Navigator.of(context).pushAndRemoveUntil(serviceRoute, (Route<dynamic> route) => false);
+    Navigator.of(context)
+        .pushAndRemoveUntil(serviceRoute, (Route<dynamic> route) => false);
   }
 
   Widget signInButton() {
@@ -42,9 +46,41 @@ class _AuthenState extends State<Authen> {
           'Sign In',
           style: TextStyle(color: Colors.white),
         ),
+        onPressed: () {
+          formKey.currentState.save();
+          print('email = $emailString, password = $passwordString');
+          checkAuthen();
+        },
+      ),
+    );
+  }
+
+  Future<void> checkAuthen() async {
+    await firebaseAuth
+        .signInWithEmailAndPassword(
+            email: emailString, password: passwordString)
+        .then((response) {
+      moveToService();
+    }).catchError((response) {
+      print('response = ${response.toString()}');
+      String errorString = response.message;
+      String titleString = response.code;
+      print('title = $titleString, error = $errorString');
+      mySnackBar(errorString);
+    });
+  }
+
+  void mySnackBar(String messageString) {
+    SnackBar snackBar = SnackBar(
+      content: Text(messageString),
+      duration: Duration(seconds: 8),
+      backgroundColor: Colors.green[700],
+      action: SnackBarAction(
+        label: 'Close',textColor: Colors.yellow,
         onPressed: () {},
       ),
     );
+    scaffoldKey.currentState.showSnackBar(snackBar);
   }
 
   Widget singUpButton() {
@@ -88,6 +124,9 @@ class _AuthenState extends State<Authen> {
           ),
           hintText: 'you@email.com',
         ),
+        onSaved: (String value) {
+          emailString = value;
+        },
       ),
     );
   }
@@ -104,6 +143,9 @@ class _AuthenState extends State<Authen> {
           ),
           hintText: 'More 6 Charactor',
         ),
+        onSaved: (String value) {
+          passwordString = value;
+        },
       ),
     );
   }
@@ -140,6 +182,7 @@ class _AuthenState extends State<Authen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       resizeToAvoidBottomPadding: false,
       body: Container(
         decoration: BoxDecoration(
@@ -150,16 +193,19 @@ class _AuthenState extends State<Authen> {
         ),
         padding: EdgeInsets.only(top: 60.0),
         alignment: Alignment.topCenter,
-        child: Column(
-          children: <Widget>[
-            showLogo(),
-            mySizeBox(),
-            showAppName(),
-            emailText(),
-            passwordText(),
-            mySizeBox(),
-            showButton(),
-          ],
+        child: Form(
+          key: formKey,
+          child: Column(
+            children: <Widget>[
+              showLogo(),
+              mySizeBox(),
+              showAppName(),
+              emailText(),
+              passwordText(),
+              mySizeBox(),
+              showButton(),
+            ],
+          ),
         ),
       ),
     );
